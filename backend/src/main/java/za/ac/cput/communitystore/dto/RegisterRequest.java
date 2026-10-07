@@ -1,15 +1,30 @@
 package za.ac.cput.communitystore.dto;
 
-import za.ac.cput.communitystore.enums.Role;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 public class RegisterRequest {
+
+    @NotBlank
     private String firstName;
+
+    @NotBlank
     private String lastName;
-    private String studentNumber;
+
+    @Email
+    @NotBlank
     private String email;
+
+    @NotBlank
     private String phoneNumber;
+
+    @NotBlank
+    @Size(
+            min = 8,
+            message = "Password must contain at least 8 characters"
+    )
     private String password;
-    private Role role;
 
     public RegisterRequest() {
     }
@@ -24,14 +39,6 @@ public class RegisterRequest {
 
     public String getLastName() {
         return lastName;
-    }
-
-    public String getStudentNumber() {
-        return studentNumber;
-    }
-
-    public void setStudentNumber(String studentNumber) {
-        this.studentNumber = studentNumber;
     }
 
     public void setLastName(String lastName) {
@@ -60,13 +67,5 @@ public class RegisterRequest {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
     }
 }

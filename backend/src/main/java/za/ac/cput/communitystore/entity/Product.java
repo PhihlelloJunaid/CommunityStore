@@ -1,6 +1,7 @@
 package za.ac.cput.communitystore.entity;
 
 import jakarta.persistence.*;
+import za.ac.cput.communitystore.enums.ProductCondition;
 
 import java.math.BigDecimal;
 
@@ -24,24 +25,34 @@ public class Product {
     @Column(nullable = false)
     private Integer quantity;
 
-    @ManyToOne
+    @Enumerated(EnumType.STRING)
+    private ProductCondition condition;
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
+
+    @ManyToOne
+    @JoinColumn(name = "store_id")
+    private Store store;
 
     public Product() {
     }
 
-    public Product(String name,
-                   String description,
-                   BigDecimal price,
-                   Integer quantity,
-                   Category category) {
-
+    public Product(String name, String description, BigDecimal price, Integer quantity, Category category) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.quantity = quantity;
         this.category = category;
+        this.condition = ProductCondition.GOOD;
+    }
+
+    @PrePersist
+    protected void onCreate() {
+        if (condition == null) {
+            condition = ProductCondition.GOOD;
+        }
     }
 
     public Long getId() {
@@ -80,11 +91,27 @@ public class Product {
         this.quantity = quantity;
     }
 
+    public ProductCondition getCondition() {
+        return condition;
+    }
+
+    public void setCondition(ProductCondition condition) {
+        this.condition = condition;
+    }
+
     public Category getCategory() {
         return category;
     }
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public Store getStore() {
+        return store;
+    }
+
+    public void setStore(Store store) {
+        this.store = store;
     }
 }

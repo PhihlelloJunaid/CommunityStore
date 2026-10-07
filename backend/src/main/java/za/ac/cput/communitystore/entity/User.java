@@ -22,72 +22,76 @@ import za.ac.cput.communitystore.enums.Role;
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private Long id;
 
-   @Column(nullable = false)
-   private String firstName;
-
-   @Column(nullable = false)
-   private String lastName;
-
-   @Column(nullable = false, unique = true)
-   private String studentNumber;
-
-   @Column(nullable = false, unique = true)
-   private String email;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(nullable = false)
-   private String phoneNumber;
+    private String firstName;
 
-   @Column(nullable = false)
-   private String password;
+    @Column(nullable = false)
+    private String lastName;
 
-   @Enumerated(EnumType.STRING)
-   @Column(nullable = false)
-   private Role role;
+    @Column(nullable = false, unique = true)
+    private String studentNumber;
 
-   @Column(nullable = false)
-   private LocalDateTime createdAt;
+    @Column(nullable = false, unique = true)
+    private String email;
 
-   @PrePersist
-   protected void onCreate() {
-       if (createdAt == null) {
-           createdAt = LocalDateTime.now();
-       }
-   }
+    @Column(nullable = false)
+    private String phoneNumber;
 
-   @Override
-   public Collection<? extends GrantedAuthority> getAuthorities() {
-       if (role == null) {
-           return List.of(new SimpleGrantedAuthority("ROLE_USER"));
-       }
-       return List.of(new SimpleGrantedAuthority("ROLE_" + role.name()));
-   }
+    @Column(nullable = false)
+    private String password;
 
-   @Override
-   public String getUsername() {
-       return email;
-   }
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role;
 
-   @Override
-   public boolean isAccountNonExpired() {
-       return true;
-   }
+    @Column(nullable = false)
+    private LocalDateTime createdAt;
 
-   @Override
-   public boolean isAccountNonLocked() {
-       return true;
-   }
+    @PrePersist
+    protected void onCreate() {
+        if (createdAt == null) {
+            createdAt = LocalDateTime.now();
+        }
+    }
 
-   @Override
-   public boolean isCredentialsNonExpired() {
-       return true;
-   }
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        if (role == null) {
+            return List.of(new SimpleGrantedAuthority("ROLE_CUSTOMER"));
+        }
 
-   @Override
-   public boolean isEnabled() {
-       return true;
-   }
+        return List.of(
+                new SimpleGrantedAuthority("ROLE_" + role.name())
+        );
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }

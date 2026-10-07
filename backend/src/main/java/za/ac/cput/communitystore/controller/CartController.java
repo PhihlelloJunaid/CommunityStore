@@ -3,6 +3,7 @@ package za.ac.cput.communitystore.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 import za.ac.cput.communitystore.dto.CartResponse;
 import za.ac.cput.communitystore.entity.Cart;
@@ -21,6 +22,7 @@ public class CartController {
     }
 
     @PostMapping("/user/{userId}")
+    @PreAuthorize("@securityService.isCurrentUser(#userId)")
     public ResponseEntity<CartResponse> createCart(
             @PathVariable Long userId) {
 
@@ -33,6 +35,7 @@ public class CartController {
     }
 
     @GetMapping("/user/{userId}")
+    @PreAuthorize("@securityService.isCurrentUser(#userId)")
     public ResponseEntity<CartResponse> getCart(
             @PathVariable Long userId) {
 
@@ -44,6 +47,7 @@ public class CartController {
     }
 
     @PostMapping("/user/{userId}/product/{productId}")
+    @PreAuthorize("@securityService.isCurrentUser(#userId)")
     public ResponseEntity<CartResponse> addProduct(
             @PathVariable Long userId,
             @PathVariable Long productId,
@@ -61,6 +65,7 @@ public class CartController {
     }
 
     @PutMapping("/user/{userId}/product/{productId}")
+    @PreAuthorize("@securityService.isCurrentUser(#userId)")
     public ResponseEntity<CartResponse> updateQuantity(
             @PathVariable Long userId,
             @PathVariable Long productId,
@@ -78,6 +83,7 @@ public class CartController {
     }
 
     @DeleteMapping("/user/{userId}/product/{productId}")
+    @PreAuthorize("@securityService.isCurrentUser(#userId)")
     public ResponseEntity<CartResponse> removeProduct(
             @PathVariable Long userId,
             @PathVariable Long productId) {
@@ -93,6 +99,7 @@ public class CartController {
     }
 
     @DeleteMapping("/user/{userId}")
+    @PreAuthorize("@securityService.isCurrentUser(#userId)")
     public ResponseEntity<Void> clearCart(
             @PathVariable Long userId) {
 
