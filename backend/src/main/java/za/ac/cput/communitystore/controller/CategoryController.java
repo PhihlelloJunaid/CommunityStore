@@ -3,6 +3,7 @@ package za.ac.cput.communitystore.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.access.prepost.PreAuthorize;
 import za.ac.cput.communitystore.entity.Category;
 import za.ac.cput.communitystore.service.CategoryService;
 
@@ -20,6 +21,7 @@ public class CategoryController {
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Category> createCategory(
             @RequestBody Category category) {
 
@@ -46,6 +48,7 @@ public class CategoryController {
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Category> updateCategory(
             @PathVariable Long id,
             @RequestBody Category category) {
@@ -56,6 +59,7 @@ public class CategoryController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> deleteCategory(
             @PathVariable Long id) {
 

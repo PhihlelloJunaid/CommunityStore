@@ -34,7 +34,7 @@ public class Order {
     @Column(nullable = false)
     private String deliveryAddress;
 
-    @OneToMany(
+    @OneToMany(fetch = FetchType.EAGER,
             mappedBy = "order",
             cascade = CascadeType.ALL,
             orphanRemoval = true

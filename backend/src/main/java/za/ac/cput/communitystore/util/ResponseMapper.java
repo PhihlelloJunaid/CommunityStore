@@ -1,5 +1,6 @@
 package za.ac.cput.communitystore.util;
 
+import za.ac.cput.communitystore.entity.Store;
 import za.ac.cput.communitystore.dto.*;
 import za.ac.cput.communitystore.entity.*;
 
@@ -43,12 +44,13 @@ public class ResponseMapper {
                 product.getDescription(),
                 product.getPrice(),
                 product.getQuantity(),
+                product.getCondition(),
 
                 product.getCategory().getId(),
                 product.getCategory().getName(),
 
-                product.getStore().getId(),
-                product.getStore().getStoreName()
+                product.getStore() == null ? null : product.getStore().getId(),
+                product.getStore() == null ? null : product.getStore().getStoreName()
         );
     }
 
@@ -57,17 +59,15 @@ public class ResponseMapper {
 
         User owner = store.getOwner();
 
-        String ownerName =
-                owner.getFirstName()
-                        + " "
-                        + owner.getLastName();
+        String ownerName = owner == null ? "" :
+                owner.getFirstName() + " " + owner.getLastName();
 
         return new StoreResponse(
                 store.getId(),
                 store.getStoreName(),
                 store.getDescription(),
                 store.getLocation(),
-                owner.getId(),
+                owner == null ? null : owner.getId(),
                 ownerName
         );
     }

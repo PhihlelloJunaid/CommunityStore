@@ -1,15 +1,16 @@
-
 package za.ac.cput.communitystore.controller;
 
+import jakarta.validation.Valid;
+import java.util.List;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
 import za.ac.cput.communitystore.dto.CheckoutRequest;
+import za.ac.cput.communitystore.dto.OrderResponse;
 import za.ac.cput.communitystore.entity.Order;
 import za.ac.cput.communitystore.enums.OrderStatus;
 import za.ac.cput.communitystore.service.OrderService;
-
-import java.util.List;
+import za.ac.cput.communitystore.util.ResponseMapper;
 
 @RestController
 @RequestMapping("/api/orders")
@@ -23,63 +24,74 @@ public class OrderController {
     }
 
     @PostMapping("/checkout/{userId}")
-    public ResponseEntity<Order> checkout(
+    @PreAuthorize("@securityService.isCurrentUser(#userId)")
+    public ResponseEntity<OrderResponse> checkout(
             @PathVariable Long userId,
-            @RequestBody CheckoutRequest request) {
+            @Valid @RequestBody CheckoutRequest request) {
 
         return ResponseEntity.ok(
-                orderService.checkout(
-                        userId,
-                        request
+                ResponseMapper.toOrderResponse(
+                        orderService.checkout(userId, request)
                 )
         );
     }
 
     @GetMapping("/{orderId}")
-    public ResponseEntity<Order> getOrder(
+    @PreAuthorize("@securityService.canViewOrder(#orderId)")
+    public ResponseEntity<OrderResponse> getOrder(
             @PathVariable Long orderId) {
 
         return ResponseEntity.ok(
-                orderService.getOrderById(orderId)
+                ResponseMapper.toOrderResponse(
+                        orderService.getOrderById(orderId)
+                )
         );
     }
 
     @GetMapping("/user/{userId}")
-    public ResponseEntity<List<Order>> getUserOrders(
+    @PreAuthorize("@securityService.isCurrentUser(#userId)")
+    public ResponseEntity<List<OrderResponse>> getUserOrders(
             @PathVariable Long userId) {
 
         return ResponseEntity.ok(
                 orderService.getOrdersByUser(userId)
+                        .stream()
+                        .map(ResponseMapper::toOrderResponse)
+                        .toList()
         );
     }
 
     @GetMapping
-    public ResponseEntity<List<Order>> getAllOrders() {
+    @PreAuthorize("hasAnyRole('CUSTOMER_SUPPORT', 'STORE_EMPLOYEE', 'ADMIN')")
+    public ResponseEntity<List<OrderResponse>> getAllOrders() {
 
         return ResponseEntity.ok(
                 orderService.getAllOrders()
+                        .stream()
+                        .map(ResponseMapper::toOrderResponse)
+                        .toList()
         );
     }
 
     @PutMapping("/{orderId}/status")
-    public ResponseEntity<Order> updateStatus(
+    @PreAuthorize("hasAnyRole('CUSTOMER_SUPPORT', 'STORE_EMPLOYEE', 'ADMIN')")
+    public ResponseEntity<OrderResponse> updateStatus(
             @PathVariable Long orderId,
             @RequestParam OrderStatus status) {
 
         return ResponseEntity.ok(
-                orderService.updateOrderStatus(
-                        orderId,
-                        status
+                ResponseMapper.toOrderResponse(
+                        orderService.updateOrderStatus(orderId, status)
                 )
         );
     }
 
     @PutMapping("/{orderId}/cancel")
+    @PreAuthorize("@securityService.canAccessOrder(#orderId)")
     public ResponseEntity<Void> cancelOrder(
             @PathVariable Long orderId) {
 
         orderService.cancelOrder(orderId);
-
         return ResponseEntity.noContent().build();
     }
 }

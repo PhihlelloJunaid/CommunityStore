@@ -2,6 +2,7 @@ package za.ac.cput.communitystore.service.impl;
 
 import org.springframework.stereotype.Service;
 import za.ac.cput.communitystore.entity.Product;
+import za.ac.cput.communitystore.enums.ProductCondition;
 import za.ac.cput.communitystore.repository.ProductRepository;
 import za.ac.cput.communitystore.service.ProductService;
 
@@ -18,19 +19,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product createProduct(Product product) {
-
-        if (product.getPrice() == null ||
-                product.getPrice().signum() < 0) {
-
-            throw new RuntimeException("Product price cannot be negative");
-        }
-
-        if (product.getQuantity() == null ||
-                product.getQuantity() < 0) {
-
-            throw new RuntimeException("Product quantity cannot be negative");
-        }
-
+        validate(product);
         return productRepository.save(product);
     }
 
@@ -60,15 +49,32 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product updateProduct(Long id, Product product) {
 
+        validate(product);
         Product existingProduct = getProductById(id);
 
         existingProduct.setName(product.getName());
         existingProduct.setDescription(product.getDescription());
         existingProduct.setPrice(product.getPrice());
         existingProduct.setQuantity(product.getQuantity());
+        existingProduct.setCondition(product.getCondition());
         existingProduct.setCategory(product.getCategory());
+        existingProduct.setStore(product.getStore());
 
         return productRepository.save(existingProduct);
+    }
+
+    private void validate(Product product) {
+        if (product == null) throw new IllegalArgumentException("Product is required");
+        if (product.getPrice() == null || product.getPrice().signum() < 0) {
+            throw new IllegalArgumentException("Product price cannot be negative");
+        }
+        if (product.getCondition() == null) {
+            product.setCondition(ProductCondition.GOOD);
+        }
+
+        if (product.getQuantity() == null || product.getQuantity() < 0) {
+            throw new IllegalArgumentException("Product quantity cannot be negative");
+        }
     }
 
     @Override

@@ -8,9 +8,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50dd1c6c-8d90-42fa-9845-dd4097174e21" name="Changes" comment="2">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/controller/NotificationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/controller/SupportRequestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/dto/SupportRequestCreateRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/dto/SupportRequestUpdateRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/entity/Notification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/entity/SupportRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/enums/NotificationType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/enums/SupportRequestStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/repository/NotificationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/repository/SupportRequestRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/service/NotificationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/service/impl/NotificationServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/service/impl/SupportRequestServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/util/UserIdGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Account.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Employee.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Notifications.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Support.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/utils/productImages.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/controller/CartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/dto/CheckoutRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/dto/CheckoutRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/dto/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/dto/LoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/dto/ProductResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/dto/ProductResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/dto/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/dto/RegisterRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/entity/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/entity/Cart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/entity/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/enums/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/enums/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/service/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/service/impl/ProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/util/ResponseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/za/ac/cput/communitystore/util/ResponseMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,16 +68,30 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
+        <option value="JSX File" />
         <option value="Class" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;PhihlelloJunaid&quot;
+  }
+}</component>
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="dec2a597-4fb9-4d5a-986e-cc4cdbd3e350" />
   </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/PhihlelloJunaid/CommunityStore.git&quot;,
+    &quot;accountId&quot;: &quot;dec2a597-4fb9-4d5a-986e-cc4cdbd3e350&quot;
+  }
+}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -83,53 +138,75 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "copilot.chat.legacySessionMetadata.migrated": "true",
-    "git-widget-placeholder": "master",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/phihl/Documents/Projects/CommunityStore",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
-    "to.speed.mode.migration.done": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;Spring Boot.CommunityStoreApplication.executor&quot;: &quot;Run&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;copilot.chat.legacySessionMetadata.migrated&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/phihl/Documents/Projects/CommunityStore&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql",
-      "mysql_aurora"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;,
+      &quot;mysql_aurora&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\phihl\Documents\Projects\CommunityStore\frontend\src" />
       <recent name="C:\Users\phihl\Documents\Projects\CommunityStore\frontend\React application" />
       <recent name="C:\Users\phihl\OneDrive\Desktop\CommunityStore\backend" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
+  <component name="RunManager" selected="Spring Boot.CommunityStoreApplication">
+    <configuration name="CommunityStoreApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
       <module name="CommunityStore" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="za.ac.cput.communitystore.CommunityStoreApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="za.ac.cput.communitystore.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="CommunityStore" />
-      <option name="filePath" />
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/frontend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.CommunityStoreApplication" />
+        <item itemvalue="npm.dev" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

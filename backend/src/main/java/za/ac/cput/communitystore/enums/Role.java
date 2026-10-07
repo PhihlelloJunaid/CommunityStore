@@ -1,6 +1,10 @@
 package za.ac.cput.communitystore.enums;
 
 public enum Role {
-    USER,
+
+    CUSTOMER,
+    CUSTOMER_SUPPORT,
+    STORE_EMPLOYEE,
     ADMIN
+
 }

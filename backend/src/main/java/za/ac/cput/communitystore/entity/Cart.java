@@ -25,7 +25,7 @@ public class Cart {
     @JoinColumn(name = "user_id", nullable = false, unique = true)
     private User user;
 
-    @OneToMany(
+    @OneToMany(fetch = FetchType.EAGER,
             mappedBy = "cart",
             cascade = CascadeType.ALL,
             orphanRemoval = true
